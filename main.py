@@ -6,7 +6,7 @@ import wikipedia as wiki
 engine = pyt3.init()
 r = sr.Recognizer()
 
-app_id = 'VY3754-26T7L7R4RV'
+app_id = ''
 client = wAlpha.Client(app_id)
 
 
@@ -14,7 +14,7 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-
+#print(sr.Microphone().list_microphone_names())
 voiceSrc = sr.Microphone(2)
 
 
@@ -51,7 +51,7 @@ while True:
         if 'wikipedia' in res:
             speak("Okay I am listening..")
             res = commandMe()
-            results = wiki.summary(res, sentences=2)
+            results = wiki.summary(res, sentences=3)
             print(results)
             speak("According to wikipedia, " + results)
             break
