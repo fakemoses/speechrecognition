@@ -2,11 +2,15 @@ import speech_recognition as sr
 import pyttsx3 as pyt3
 import wolframalpha as wAlpha
 import wikipedia as wiki
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 engine = pyt3.init()
 r = sr.Recognizer()
 
-app_id = ''
+app_id = os.getenv("WOLFRAM_KEY")
 client = wAlpha.Client(app_id)
 
 
